@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el número</title>
+</head>
+<body>
+    <h1>Instrucciones</h1>
+    <p>Este es un juego simple donde tienes que adivinar el número secreto generado aleatoriamente entre 1 y 100.</p>
+    <p>Presiona el botón "Jugar" para empezar y sigue las indicaciones en las alertas para saber si tu adivinanza es mayor o menor al número secreto.</p>
+    <button onclick="guessNumber()">Jugar</button>
+    <script>
+      function guessNumber() {
+        let secretNumber = Math.floor(Math.random() * 100) + 1;
+        let userGuess;
+        while (userGuess !== secretNumber) {
+          userGuess = parseInt(prompt("Adivina el número (1-100):"));
+          if (userGuess > secretNumber) {
+            alert("El número es menor");
+          } else if (userGuess < secretNumber) {
+            alert("El número es mayor");
+          } else {
+            alert("¡Adivinaste! El número era " + secretNumber);
+            secretNumber = Math.floor(Math.random() * 100) + 1;
+          }
+        }
+      }
+    </script>
+
+
+
+    
+</body>
+</html>
